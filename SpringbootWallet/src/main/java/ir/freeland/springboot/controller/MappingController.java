@@ -22,6 +22,7 @@ import ir.freeland.springboot.dto.inputdto.FindAccountInputDto;
 import ir.freeland.springboot.dto.inputdto.FindPersonInputDto;
 import ir.freeland.springboot.dto.inputdto.UpdateAccountInputDto;
 import ir.freeland.springboot.dto.inputdto.UpdatePersonInputDto;
+import ir.freeland.springboot.dto.inputdto.WithdrawInputDto;
 import ir.freeland.springboot.persistence.model.Person;
 import ir.freeland.springboot.persistence.model.Account;
 import ir.freeland.springboot.services.AccountService;
@@ -186,25 +187,38 @@ public class MappingController {
     public String deposit(Model model) {
 		model.addAttribute("depositInputDto", new DepositInputDto());
         return "sample13";
+        
     }
 	
-	@PostMapping("/home/adminpanel/deleteaccount/result")
+	@PostMapping("/home/userpanel/deposit/result")
 	public String depositResult(DepositInputDto depositInputDto) {
 	       accountService.deposit(depositInputDto);
-	       
 	       return "redirect:/home/adminpanel/findallaccount";
 	   }
 	
 	@GetMapping("/home/userpanel/withdraw")
-    public String withdraw() {
-        return "sample";
+    public String withdraw(Model model) {
+		model.addAttribute("withdrawInputDto", new WithdrawInputDto());
+        return "sample14";
+        
     }
+	
+	@PostMapping("/home/userpanel/withdraw/result")
+	public String withdrawResult(WithdrawInputDto withdrawInputDto) {
+	       accountService.withdraw(withdrawInputDto);
+	       return "redirect:/home/adminpanel/findallaccount";
+	   }
 	
 	@GetMapping("/home/userpanel/listoftransaction")
     public String showListOfTransaction() {
         return "sample";
     }
 	
+	@PostMapping("/home/userpanel/listoftransaction/result")
+	public String listOfTransactionResult(DepositInputDto depositInputDto) {
+	       accountService.deposit(depositInputDto);
+	       return "redirect:/home/adminpanel/findallaccount";
+	   }
 	
 	
 	

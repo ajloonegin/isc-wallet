@@ -143,6 +143,26 @@ public class WebConfig implements WebMvcConfigurer {
         return new JstlView("/WEB-INF/view4/sample10.jsp");
     }
     
+    @Bean    
+    View sample11(){
+        return new JstlView("/WEB-INF/view4/sample11.jsp");
+    }
+    
+    @Bean    
+    View sample12(){
+        return new JstlView("/WEB-INF/view4/sample12.jsp");
+    }
+    
+    @Bean    
+    View sample13(){
+        return new JstlView("/WEB-INF/view4/sample13.jsp");
+    }
+    
+    @Bean    
+    View sample14(){
+        return new JstlView("/WEB-INF/view4/sample14.jsp");
+    }
+    
     
     @Bean    
     View registerform(){

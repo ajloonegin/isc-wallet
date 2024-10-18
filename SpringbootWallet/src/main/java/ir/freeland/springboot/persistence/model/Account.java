@@ -30,7 +30,7 @@ public class Account {
 	
 	
 	@Column(nullable = false, unique = false)
-	private long accountBalance;
+	private double accountBalance;
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.DATE)
@@ -76,13 +76,17 @@ public class Account {
 
 
 
-	public long getAccountBalance() {
+
+
+
+
+	public double getAccountBalance() {
 		return accountBalance;
 	}
 
 
 
-	public void setAccountBalance(long accountBalance) {
+	public void setAccountBalance(double accountBalance) {
 		this.accountBalance = accountBalance;
 	}
 
