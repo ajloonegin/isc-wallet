@@ -36,6 +36,6 @@
 </head>
 <body>
     <h2 th:text="${message}">Thanks for registering!</h2>
-    <a href="/register">Go Back to Registration</a>
+    <a href="/home/adminpanel/addperson">Go Back to Registration</a>
 </body>
 </html>

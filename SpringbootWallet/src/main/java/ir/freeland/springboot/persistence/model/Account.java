@@ -27,6 +27,8 @@ public class Account {
 	@Column(nullable = false, unique = true)
 	private String accountNumber;
 	
+	
+	
 	@Column(nullable = false, unique = false)
 	private long accountBalance;
 	
@@ -122,6 +124,8 @@ public class Account {
 		this.bill = bill;
 	}
 
+	
+	
 
 
 	@Override
