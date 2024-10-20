@@ -2,21 +2,39 @@ package ir.freeland.springboot.dto.inputdto;
 
 import java.util.Date;
 
-import ir.freeland.springboot.persistence.model.Gender;
-import ir.freeland.springboot.persistence.model.MilitaryStatus;
+import ir.freeland.springboot.annotation.CardNumber;
+import ir.freeland.springboot.annotation.IbanCode;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 
 public class UpdateAccountInputDto {
+
+	@NotBlank(message = "id is required")
 	private long id;
+
+	// account number= card number
+	@CardNumber
+	@NotBlank(message = "accountNumber is required")
 	private String accountNumber;
+
+	// rial
+	@NotBlank(message = "accountBalance is required")
+	@Min(10000)
 	private long accountBalance;
+
+	@NotBlank(message = "dateOfCreate is required")
 	private Date dateOfCreate;
-	private String shabaNumber;
 	
+	// Iban number= shaba number
+	@IbanCode
+	@NotBlank(message = "shabaNumber is required")
+	private String shabaNumber;
+
 	public UpdateAccountInputDto() {
 		super();
-		
+
 	}
-	
+
 	public UpdateAccountInputDto(long id, String accountNumber, long accountBalance, Date dateOfCreate,
 			String shabaNumber) {
 		super();
@@ -66,13 +84,5 @@ public class UpdateAccountInputDto {
 	public void setShabaNumber(String shabaNumber) {
 		this.shabaNumber = shabaNumber;
 	}
-	
-	
 
-	
-	
-	
-	
-	
-	
 }

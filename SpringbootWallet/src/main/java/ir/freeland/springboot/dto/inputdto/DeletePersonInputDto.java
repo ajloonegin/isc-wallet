@@ -1,6 +1,10 @@
 package ir.freeland.springboot.dto.inputdto;
 
+import jakarta.validation.constraints.NotBlank;
+
 public class DeletePersonInputDto {
+	
+	@NotBlank(message = "id is required")
 	private long id;
 
 	public DeletePersonInputDto() {

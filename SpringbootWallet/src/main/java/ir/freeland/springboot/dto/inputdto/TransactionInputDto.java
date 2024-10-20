@@ -3,20 +3,19 @@ package ir.freeland.springboot.dto.inputdto;
 import ir.freeland.springboot.annotation.CardNumber;
 import jakarta.validation.constraints.NotBlank;
 
-public class FindAccountInputDto {
+public class TransactionInputDto {
 
-	
 	// account number= card number
 	@CardNumber
 	@NotBlank(message = "accountNumber is required")
 	private String accountNumber;
 
-	public FindAccountInputDto() {
+	public TransactionInputDto() {
 		super();
 
 	}
 
-	public FindAccountInputDto(String accountNumber) {
+	public TransactionInputDto(String accountNumber) {
 		super();
 		this.accountNumber = accountNumber;
 	}
@@ -28,4 +27,5 @@ public class FindAccountInputDto {
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+
 }

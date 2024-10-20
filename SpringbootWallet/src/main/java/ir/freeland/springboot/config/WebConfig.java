@@ -4,7 +4,9 @@ import jakarta.servlet.MultipartConfigElement;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.MediaType;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.ui.context.support.ResourceBundleThemeSource;
 import org.springframework.util.unit.DataSize;
 import org.springframework.web.servlet.View;
@@ -23,6 +25,8 @@ import org.springframework.web.servlet.view.JstlView;
 
 
 @Configuration
+
+
 public class WebConfig implements WebMvcConfigurer {
 	
 	@Override
@@ -98,69 +102,80 @@ public class WebConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    View sample() {
-        return new JstlView("/WEB-INF/view/sample.jsp");
+    View sample1() {
+        return new JstlView("/WEB-INF/view01/sample1.jsp");
     }
 
     @Bean
     View sample2() {
-        return new JstlView("/WEB-INF/view2/sample2.jsp");
+        return new JstlView("/WEB-INF/view02/sample2.jsp");
     }
 
     @Bean
     View sample3(){
-        return new JstlView("/WEB-INF/view3/sample3.jsp");
+        return new JstlView("/WEB-INF/view03/sample3.jsp");
     }
     
     @Bean    
     View sample4(){
-        return new JstlView("/WEB-INF/view4/sample4.jsp");
+        return new JstlView("/WEB-INF/view04/sample4.jsp");
     }
     
     @Bean    
     View sample6(){
-        return new JstlView("/WEB-INF/view4/sample6.jsp");
+        return new JstlView("/WEB-INF/view06/sample6.jsp");
     }
     
     
     @Bean    
     View sample7(){
-        return new JstlView("/WEB-INF/view4/sample7.jsp");
+        return new JstlView("/WEB-INF/view07/sample7.jsp");
     }
     
     @Bean    
     View sample8(){
-        return new JstlView("/WEB-INF/view4/sample8.jsp");
+        return new JstlView("/WEB-INF/view08/sample8.jsp");
     }
     
     @Bean    
     View sample9(){
-        return new JstlView("/WEB-INF/view4/sample9.jsp");
+        return new JstlView("/WEB-INF/view09/sample9.jsp");
     }
     
     @Bean    
     View sample10(){
-        return new JstlView("/WEB-INF/view4/sample10.jsp");
+        return new JstlView("/WEB-INF/view10/sample10.jsp");
     }
     
     @Bean    
     View sample11(){
-        return new JstlView("/WEB-INF/view4/sample11.jsp");
+        return new JstlView("/WEB-INF/view11/sample11.jsp");
     }
     
     @Bean    
     View sample12(){
-        return new JstlView("/WEB-INF/view4/sample12.jsp");
+        return new JstlView("/WEB-INF/view12/sample12.jsp");
     }
     
     @Bean    
     View sample13(){
-        return new JstlView("/WEB-INF/view4/sample13.jsp");
+        return new JstlView("/WEB-INF/view13/sample13.jsp");
     }
     
     @Bean    
     View sample14(){
-        return new JstlView("/WEB-INF/view4/sample14.jsp");
+        return new JstlView("/WEB-INF/view14/sample14.jsp");
+    }
+    
+    @Bean    
+    View sample15(){
+        return new JstlView("/WEB-INF/view15/sample15.jsp");
+    }
+    
+    
+    @Bean    
+    View sample16(){
+        return new JstlView("/WEB-INF/view16/sample16.jsp");
     }
     
     

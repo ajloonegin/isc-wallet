@@ -1,9 +1,15 @@
 package ir.freeland.springboot.dto.inputdto;
 
+import ir.freeland.springboot.annotation.CardNumber;
+import jakarta.validation.constraints.NotBlank;
+
 public class WithdrawInputDto {
-
+	
+	@CardNumber
+	@NotBlank(message = "id is required")
 	String accountNumber;
-
+	
+	@NotBlank(message = "amount is required")
     private double amount;
     
     

@@ -3,29 +3,40 @@ package ir.freeland.springboot.dto.inputdto;
 import ir.freeland.springboot.annotation.CardNumber;
 import jakarta.validation.constraints.NotBlank;
 
-public class DepositInputDto {
+public class TransferInputDto {
+
+	// account number= card number
+	@CardNumber
+	@NotBlank(message = "sourceAccountNumber is required")
+	String sourceAccountNumber;
 	
+	// account number= card number
 	@CardNumber
 	@NotBlank(message = "destinationAccountNumber is required")
-    private String destinationAccountNumber;
-
+	String destinationAccountNumber;
+	
 	@NotBlank(message = "amount is required")
-    private double amount;
+	private double amount;
 
-    public DepositInputDto() {
-    }
-    
-    
-    
-
-	public DepositInputDto(String destinationAccountNumber, double amount) {
+	public TransferInputDto() {
 		super();
+
+	}
+
+	public TransferInputDto(String sourceAccountNumber, String destinationAccountNumber, double amount) {
+		super();
+		this.sourceAccountNumber = sourceAccountNumber;
 		this.destinationAccountNumber = destinationAccountNumber;
 		this.amount = amount;
 	}
 
+	public String getSourceAccountNumber() {
+		return sourceAccountNumber;
+	}
 
-
+	public void setSourceAccountNumber(String sourceAccountNumber) {
+		this.sourceAccountNumber = sourceAccountNumber;
+	}
 
 	public String getDestinationAccountNumber() {
 		return destinationAccountNumber;
@@ -43,6 +54,4 @@ public class DepositInputDto {
 		this.amount = amount;
 	}
 
-	
-    
 }

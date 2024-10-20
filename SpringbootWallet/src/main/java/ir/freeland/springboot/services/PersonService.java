@@ -9,9 +9,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ir.freeland.springboot.dto.inputdto.AddPersonInputDto;
 import ir.freeland.springboot.dto.inputdto.DeletePersonInputDto;
 import ir.freeland.springboot.dto.inputdto.UpdatePersonInputDto;
-import ir.freeland.springboot.persistence.model.Person;
-import ir.freeland.springboot.persistence.repo.PersonRepository;
+import ir.freeland.springboot.model.entity.Person;
+import ir.freeland.springboot.repo.PersonRepository;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
@@ -21,7 +25,7 @@ public class PersonService {
     private PersonRepository personRepository;
 
     public List<Person> getAllPersons() {
-        return personRepository.findAll();
+        return (List<Person>) personRepository.findAll();
     }
     
     public Person createPerson(AddPersonInputDto addPersonInputDto) {
@@ -70,4 +74,14 @@ public class PersonService {
         return null;
     }
     
+    public Integer calculateAge(Person person) {
+       
+        
+        //Convert java.util.Date to LocalDate in between method first parameter
+        
+        return Period.between((person.getBirthDate().toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()), LocalDate.now()).getYears();
+        
+    }
 }
