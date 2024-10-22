@@ -6,7 +6,9 @@ import ir.freeland.springboot.model.entity.Person;
 import ir.freeland.springboot.services.PersonService;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MilitaryStatusValidator implements ConstraintValidator<MilitaryStatusRequired, Person>{
 	
 	
@@ -16,8 +18,11 @@ public class MilitaryStatusValidator implements ConstraintValidator<MilitaryStat
 	
 	@Override
     public boolean isValid(Person person, ConstraintValidatorContext context) {
+
         if (person.getGender() == null) {
             return true; // Skip validation if gender is not specified
+        }else if (personService == null) {
+            throw new IllegalStateException("PersonService is not injected!");
         }
         Integer age=personService.calculateAge(person);
 

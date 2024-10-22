@@ -15,7 +15,6 @@ import ir.freeland.springboot.model.entity.Transaction;
 
 
 
-@Service
 @Repository
 public interface TransactionRepository  extends CrudRepository <Transaction, Long>{
 	List<Transaction> findByAccountNumber(String accountNumber);

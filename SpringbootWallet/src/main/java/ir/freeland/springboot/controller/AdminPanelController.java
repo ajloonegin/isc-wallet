@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -77,7 +78,7 @@ public class AdminPanelController {
 
 	
 	@PostMapping(value ="/addperson/result")
-	public String addPersonResult(AddPersonInputDto addPersonInputDto) {
+	public String addPersonResult( AddPersonInputDto addPersonInputDto) {
 
 		personService.createPerson(addPersonInputDto);
 
@@ -94,7 +95,7 @@ public class AdminPanelController {
 
 	
 	@PostMapping(value ="/addaccount/result")
-	public String addAccountResult(@Valid @RequestBody AddAccountInputDto addAccountInputDto) {
+	public String addAccountResult( AddAccountInputDto addAccountInputDto) {
 		accountService.createAccount(addAccountInputDto);
 
 		return "resultaddaccount";

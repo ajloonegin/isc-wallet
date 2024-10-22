@@ -1,5 +1,6 @@
 package ir.freeland.springboot.model.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
@@ -40,11 +41,10 @@ public class Account {
 	private double accountBalance;
 	
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	private Date dateOfCreate;
+	private LocalDate dateOfCreate;
 	
 	//Iban number= shaba number
-	@IbanCode
+//	@IbanCode
 	@Column(nullable = false, unique = true)
 	private String shabaNumber;
 	
@@ -98,13 +98,13 @@ public class Account {
 
 
 
-	public Date getDateOfCreate() {
+	public LocalDate getDateOfCreate() {
 		return dateOfCreate;
 	}
 
 
 
-	public void setDateOfCreate(Date dateOfCreate) {
+	public void setDateOfCreate(LocalDate dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 

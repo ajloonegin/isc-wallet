@@ -1,25 +1,58 @@
+
+
+
+
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
+<html>
+<head>
+    <meta charset="UTF-8">
     <title>Account Registration</title>
-</h:head>
-<h:body>
-    <h:form>
-        <h:panelGrid columns="2">
-            <h:outputLabel for="accountNumber" value="Account Number:" />
-            <h:inputText id="accountNumber" value="#{addAccountInputDto.accountNumber}" required="true" />
-            <h:outputLabel for="accountBalance" value="Account Balance:" />
-            <h:inputText id="accountBalance" value="#{addAccountInputDto.accountBalance}" required="true" />
-            <h:outputLabel for="dateOfCreate" value="Date Of Create:" />
-            <h:inputText id="dateOfCreate" value="#{addAccountInputDto.dateOfCreate}" required="true" />
-			<h:outputLabel for="shabaNumber" value="Shaba Number:" />
-			<h:inputText id="shabaNumber" value="#{addAccountInputDto.shabaNumber}" required="true" />
-			
-        </h:panelGrid>
-        
-        <h:commandButton value="Add" action="#{mappingController.addAccountResult(addAccountInputDto)}" />
-    </h:form>
-</h:body>
-</html>
+</head>
+<body>
+    <h2>Account Registration</h2>
+    <%--@elvariable id="addAccountInputDto" type=""--%>
+    <form:form modelAttribute="addAccountInputDto" method="post" action="${pageContext.request.contextPath}/home/adminpanel/addaccount/result">
+        <table>
+            <tr>
+                <td><form:label path="accountNumber">Account Number:</form:label></td>
+                <td><form:input path="accountNumber" /></td>
+            </tr>
+            <tr>
+                <td><form:label path="accountBalance">Account Balance:</form:label></td>
+                <td><form:input path="accountBalance" /></td>
+            </tr>
+            <tr>
+                <td><form:label path="dateOfCreate">Date Of Create:</form:label></td>
+                <td><form:input path="dateOfCreate" type="date"/></td>
+            </tr>
+
+            <tr>
+                <td><form:label path="shabaNumber">Shaba Number:</form:label></td>
+                <td><form:input path="shabaNumber" /></td>
+            </tr>
+
+
+
+            <tr>
+                <td colspan="2"><input type="submit" value="Add Account" /></td>
+            </tr>
+        </table>
+    </form:form>
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
 

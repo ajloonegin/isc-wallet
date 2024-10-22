@@ -1,33 +1,25 @@
-<!--html>
-   <body>
-      <h>please enter national code of person</h>
-      <form action="#" th:action="@{/home/adminpanel/findperson/result}" method = "Post" >
-         National Code: <input type = "text" name = "national_code" required/>
-         <br />
-           
-         <input type = "submit" value = "Submit" />
-		 
-		 
-      </form>
-      
-   </body>
-</html-->
 
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-    <title>َPerson Finding</title>
-</h:head>
-<h:body>
-    <h:form>
-        <h:panelGrid columns="2">
-            <h:outputLabel for="nationalCode" value="National Code:" />
-            <h:inputText id="nationalCode" value="#{findPersonInputDto.nationalCode}" required="true" />
-        </h:panelGrid>
-        
-        <h:commandButton value="Find" action="#{mappingController.findPersonResult(findPersonInputDto)}" />
-    </h:form>
-</h:body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Person Finding</title>
+</head>
+<body>
+<form action="${pageContext.request.contextPath}/mappingController/findPersonResult" method="post">
+    <table>
+        <tr>
+            <td><label for="nationalCode">National Code:</label></td>
+            <td><input id="nationalCode" name="nationalCode" type="text" required="true" value="${findPersonInputDto.nationalCode}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Find</button></td>
+        </tr>
+    </table>
+</form>
+</body>
 </html>

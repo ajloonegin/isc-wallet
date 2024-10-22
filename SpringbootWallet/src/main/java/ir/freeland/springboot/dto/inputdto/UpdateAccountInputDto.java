@@ -1,5 +1,6 @@
 package ir.freeland.springboot.dto.inputdto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import ir.freeland.springboot.annotation.CardNumber;
@@ -9,25 +10,22 @@ import jakarta.validation.constraints.NotBlank;
 
 public class UpdateAccountInputDto {
 
-	@NotBlank(message = "id is required")
+
 	private long id;
 
 	// account number= card number
-	@CardNumber
-	@NotBlank(message = "accountNumber is required")
+
 	private String accountNumber;
 
 	// rial
-	@NotBlank(message = "accountBalance is required")
-	@Min(10000)
+
 	private long accountBalance;
 
-	@NotBlank(message = "dateOfCreate is required")
-	private Date dateOfCreate;
+
+	private LocalDate dateOfCreate;
 	
 	// Iban number= shaba number
-	@IbanCode
-	@NotBlank(message = "shabaNumber is required")
+
 	private String shabaNumber;
 
 	public UpdateAccountInputDto() {
@@ -35,7 +33,7 @@ public class UpdateAccountInputDto {
 
 	}
 
-	public UpdateAccountInputDto(long id, String accountNumber, long accountBalance, Date dateOfCreate,
+	public UpdateAccountInputDto(long id, String accountNumber, long accountBalance, LocalDate dateOfCreate,
 			String shabaNumber) {
 		super();
 		this.id = id;
@@ -69,11 +67,11 @@ public class UpdateAccountInputDto {
 		this.accountBalance = accountBalance;
 	}
 
-	public Date getDateOfCreate() {
+	public LocalDate getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(Date dateOfCreate) {
+	public void setDateOfCreate(LocalDate dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 

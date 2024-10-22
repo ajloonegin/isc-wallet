@@ -1,5 +1,6 @@
 package ir.freeland.springboot.dto.inputdto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import ir.freeland.springboot.annotation.IranianNationalCode;
@@ -8,6 +9,8 @@ import ir.freeland.springboot.model.constant.Gender;
 import ir.freeland.springboot.model.constant.MilitaryStatus;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -15,32 +18,28 @@ import jakarta.validation.constraints.Pattern;
 @MilitaryStatusRequired
 public class AddPersonInputDto {
 
-	@NotBlank(message = "name is required")
+
 	private String name;
 
-	@NotBlank(message = "surName is required")
+
 	private String surName;
 
-	@IranianNationalCode
-	@NotBlank(message = "nationalCode is required")
+
 	private String nationalCode;
 
-	@NotBlank(message = "birthDate is required")
-	private Date birthDate;
 
-	@Pattern(regexp = "(0|\\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}")
-	@NotBlank(message = "mobileNumber is required")
+	private LocalDate birthDate;
+
+
 	private String mobileNumber;
 
-	@Enumerated(EnumType.STRING)
-	@NotBlank(message = "gender is required")
+
 	private Gender gender;
 
-	@Enumerated(EnumType.STRING)
+
 	private MilitaryStatus militaryStatus;
 
-	@NotBlank(message = "email is required")
-	@Email(message = "Invalid email address")
+
 	private String email;
 
 	public AddPersonInputDto() {
@@ -48,7 +47,7 @@ public class AddPersonInputDto {
 
 	}
 
-	public AddPersonInputDto(String name, String surName, String nationalCode, Date birthDate, String mobileNumber,
+	public AddPersonInputDto(String name, String surName, String nationalCode, LocalDate birthDate, String mobileNumber,
 			Gender gender, MilitaryStatus militaryStatus, String email) {
 		super();
 		this.name = name;
@@ -85,11 +84,11 @@ public class AddPersonInputDto {
 		this.nationalCode = nationalCode;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 

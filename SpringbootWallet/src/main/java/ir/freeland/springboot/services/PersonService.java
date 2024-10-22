@@ -52,7 +52,7 @@ public class PersonService {
     public Person updatePerson(Long id, UpdatePersonInputDto updatePersonInputDto) {
         Person person = getPersonById(id);
         if (person != null) {
-        	
+
         	person.setName(updatePersonInputDto.getName());
         	person.setSurName(updatePersonInputDto.getSurName());
         	person.setNationalCode(updatePersonInputDto.getNationalCode());
@@ -75,13 +75,11 @@ public class PersonService {
     }
     
     public Integer calculateAge(Person person) {
-       
-        
+
+
         //Convert java.util.Date to LocalDate in between method first parameter
-        
-        return Period.between((person.getBirthDate().toInstant()
-                .atZone(ZoneId.systemDefault())
-                .toLocalDate()), LocalDate.now()).getYears();
-        
+
+        return Period.between((person.getBirthDate()), LocalDate.now()).getYears();
+
     }
 }

@@ -1,5 +1,6 @@
 package ir.freeland.springboot.dto.inputdto;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import ir.freeland.springboot.annotation.CardNumber;
@@ -15,21 +16,18 @@ import jakarta.validation.constraints.Pattern;
 public class AddAccountInputDto {
 
 	// account number= card number
-	@CardNumber
-	@NotBlank(message = "accountNumber is required")
+
 	private String accountNumber;
 
 	// rial
-	@NotBlank(message = "accountBalance is required")
-	@Min(10000)
+
 	private long accountBalance;
 
-	@NotBlank(message = "accountBalance is required")
-	private Date dateOfCreate;
+
+	private LocalDate dateOfCreate;
 
 	// Iban number= shaba number
-	@IbanCode
-	@NotBlank(message = "shabaNumber is required")
+
 	private String shabaNumber;
 
 	public AddAccountInputDto() {
@@ -37,7 +35,7 @@ public class AddAccountInputDto {
 
 	}
 
-	public AddAccountInputDto(String accountNumber, long accountBalance, Date dateOfCreate, String shabaNumber) {
+	public AddAccountInputDto(String accountNumber, long accountBalance, LocalDate dateOfCreate, String shabaNumber) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountBalance = accountBalance;
@@ -61,11 +59,11 @@ public class AddAccountInputDto {
 		this.accountBalance = accountBalance;
 	}
 
-	public Date getDateOfCreate() {
+	public LocalDate getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(Date dateOfCreate) {
+	public void setDateOfCreate(LocalDate dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 

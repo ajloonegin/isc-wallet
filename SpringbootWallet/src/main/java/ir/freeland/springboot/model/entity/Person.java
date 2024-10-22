@@ -1,5 +1,6 @@
 package ir.freeland.springboot.model.entity;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(name = "ISC_PERSON")
 @Service
-@MilitaryStatusRequired
+//@MilitaryStatusRequired
 public class Person {
 
 	@Id
@@ -44,8 +45,7 @@ public class Person {
 	private String nationalCode;
 
 	@Column(nullable = false)
-	@Temporal(TemporalType.DATE)
-	private Date birthDate;
+	private LocalDate birthDate;
 
 	@Column(nullable = false, unique = false)
 	@Pattern(regexp = "(0|\\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}")
@@ -100,11 +100,11 @@ public class Person {
 		this.nationalCode = nationalCode;
 	}
 
-	public Date getBirthDate() {
+	public LocalDate getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(Date birthDate) {
+	public void setBirthDate(LocalDate birthDate) {
 		this.birthDate = birthDate;
 	}
 

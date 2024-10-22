@@ -1,37 +1,22 @@
-<!--html>
-   <body>
-      <h>please enter account number of account</h>
-      <form action="#" th:action="@{/home/adminpanel/findaccount/result}" method = "Post" >
-         National Code: <input type = "text" name = "account_number" required/>
-         <br />
-           
-         <input type = "submit" value = "Submit" />
-		 
-		 
-      </form>
-      
-   </body>
-</html>
-
-
-</html-->
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-    <title>َAccount Finding</title>
-</h:head>
-<h:body>
-    <h:form>
-        <h:panelGrid columns="2">
-            <h:outputLabel for="accountNumber" value="Account Number:" />
-            <h:inputText id="accountNumber" value="#{addaccountinputdto.accountNumber}" required="true" />
-        </h:panelGrid>
-        
-        <h:commandButton value="Find" action="#{mappingController.findAccountResult(addaccountinputdto)}" />
-    </h:form>
-</h:body>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Account Finding</title>
+</head>
+<body>
+<form action="${pageContext.request.contextPath}/mappingController/findAccountResult" method="post">
+    <table>
+        <tr>
+            <td><label for="accountNumber">Account Number:</label></td>
+            <td><input id="accountNumber" name="accountNumber" type="text" required="true" value="${addaccountinputdto.accountNumber}" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button type="submit">Find</button></td>
+        </tr>
+    </table>
+</form>
+</body>
 </html>

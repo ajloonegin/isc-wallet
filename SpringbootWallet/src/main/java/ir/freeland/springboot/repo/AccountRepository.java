@@ -15,7 +15,6 @@ import ir.freeland.springboot.model.entity.Person;
 
 
 @Repository
-@Service
 public interface AccountRepository extends CrudRepository<Account, Long>{
 	
 	Account findByAccountNumber(String accountNumber);

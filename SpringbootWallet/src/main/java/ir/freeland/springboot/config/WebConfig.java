@@ -1,5 +1,6 @@
 package ir.freeland.springboot.config;
 
+import ir.freeland.springboot.annotation.MilitaryStatusValidator;
 import jakarta.servlet.MultipartConfigElement;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
@@ -28,6 +29,12 @@ import org.springframework.web.servlet.view.JstlView;
 
 
 public class WebConfig implements WebMvcConfigurer {
+
+    @Bean
+    public MilitaryStatusValidator militaryStatusValidator() {
+
+        return new MilitaryStatusValidator();
+    }
 	
 	@Override
     public void addViewControllers(final ViewControllerRegistry registry) {
@@ -184,11 +191,8 @@ public class WebConfig implements WebMvcConfigurer {
         return new JstlView("/WEB-INF/view5/registerform.jsp");
     }
     
-    @Bean    
-    View resultaddnewperson(){
-        return new JstlView("/WEB-INF/view5/resultaddnewperson.jsp");
-    }
-    
+
+
 
     @Bean    
     View result(){
@@ -207,6 +211,78 @@ public class WebConfig implements WebMvcConfigurer {
             .defaultContentType(MediaType.APPLICATION_JSON)
             .mediaType("xml", MediaType.APPLICATION_XML)
             .mediaType("json", MediaType.APPLICATION_JSON);
+    }
+
+    @Bean
+    View resultuserbutton(){
+        return new JstlView("/WEB-INF/view01/resultuserbutton.jsp");
+    }
+
+    @Bean
+    View resultadminbutton(){
+        return new JstlView("/WEB-INF/view01/resultadminbutton.jsp");
+    }
+
+    @Bean
+    View resultaddnewperson(){
+        return new JstlView("/WEB-INF/view04/resultaddnewperson.jsp");
+    }
+
+    @Bean
+    View resultfindperson(){
+        return new JstlView("/WEB-INF/view06/resultfindperson.jsp");
+    }
+
+    @Bean
+    View resultupdateperson(){
+        return new JstlView("/WEB-INF/view07/resultupdateperson.jsp");
+    }
+
+    @Bean
+    View resultdeleteperson(){
+        return new JstlView("/WEB-INF/view08/resultdeleteperson.jsp");
+    }
+
+    @Bean
+    View resultaddaccount(){
+        return new JstlView("/WEB-INF/view09/resultaddaccount.jsp");
+    }
+
+    @Bean
+    View resultfindaccount(){
+        return new JstlView("/WEB-INF/view10/resultfindaccount.jsp");
+    }
+
+    @Bean
+    View resultupdateaccount(){
+        return new JstlView("/WEB-INF/view11/resultupdateaccount.jsp");
+    }
+
+
+    @Bean
+    View resultdeleteaccount(){
+        return new JstlView("/WEB-INF/view12/resultdeleteaccount.jsp");
+    }
+
+
+    @Bean
+    View resultdepositaccount(){
+        return new JstlView("/WEB-INF/view13/resultdepositaccount.jsp");
+    }
+
+    @Bean
+    View resultwithdrawaccount(){
+        return new JstlView("/WEB-INF/view14/resultwithdrawaccount.jsp");
+    }
+
+    @Bean
+    View resulttransfer(){
+        return new JstlView("/WEB-INF/view15/resulttransfer.jsp");
+    }
+
+    @Bean
+    View resulttransactions(){
+        return new JstlView("/WEB-INF/view16/resulttransactions.jsp");
     }
 
 }
