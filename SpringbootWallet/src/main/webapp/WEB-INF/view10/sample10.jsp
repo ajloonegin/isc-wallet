@@ -1,22 +1,29 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
+    <meta charset="UTF-8">
     <title>Account Finding</title>
 </head>
 <body>
-<form action="${pageContext.request.contextPath}/mappingController/findAccountResult" method="post">
+<h2>Account Finding</h2>
+<%--@elvariable id="findAccountInputDto" type=""--%>
+<form:form modelAttribute="findAccountInputDto" method="post"
+           action="${pageContext.request.contextPath}/home/adminpanel/findaccount/result">
     <table>
         <tr>
-            <td><label for="accountNumber">Account Number:</label></td>
-            <td><input id="accountNumber" name="accountNumber" type="text" required="true" value="${addaccountinputdto.accountNumber}" /></td>
+            <td><form:label path="accountNumber">Account Number:</form:label></td>
+            <td><form:input path="accountNumber"/></td>
         </tr>
+
+
         <tr>
-            <td colspan="2"><button type="submit">Find</button></td>
+            <td colspan="2"><input type="submit" value="Find Account"/></td>
         </tr>
     </table>
-</form>
+</form:form>
+
 </body>
-</html>
+
+

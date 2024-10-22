@@ -2,6 +2,7 @@ package ir.freeland.springboot.services;
 
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class TransactionService {
     private TransactionRepository transactionRepository;
 	
 	public void updateAccountBalance(Account account, double amount, Operation op) {
-		LocalDate date = LocalDate.now();
+		Date date = new Date();
         if (op == Operation.WITHDRAW &&  iswithdrawPossible(amount, date, account.getAccountNumber(), op)) {
         	
             account.setAccountBalance((account.getAccountBalance() - amount));
@@ -55,7 +56,7 @@ public class TransactionService {
     }
 	
 	
-	public boolean iswithdrawPossible(double amount, LocalDate date, String accountNumber, Operation operation) {
+	public boolean iswithdrawPossible(double amount, Date date, String accountNumber, Operation operation) {
 		if (amount < MIN_WITHDRAWAL_AMOUNT || amount > MAX_WITHDRAWAL_AMOUNT) {
             return false;
         }else {

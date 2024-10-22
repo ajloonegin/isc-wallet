@@ -41,7 +41,7 @@ public class Account {
 	private double accountBalance;
 	
 	@Column(nullable = false)
-	private LocalDate dateOfCreate;
+	private Date dateOfCreate;
 	
 	//Iban number= shaba number
 //	@IbanCode
@@ -98,13 +98,13 @@ public class Account {
 
 
 
-	public LocalDate getDateOfCreate() {
+	public Date getDateOfCreate() {
 		return dateOfCreate;
 	}
 
 
 
-	public void setDateOfCreate(LocalDate dateOfCreate) {
+	public void setDateOfCreate(Date dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 

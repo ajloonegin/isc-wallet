@@ -3,6 +3,7 @@ package ir.freeland.springboot.repo;
 
 import java.time.LocalDate;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -18,7 +19,7 @@ import ir.freeland.springboot.model.entity.Transaction;
 @Repository
 public interface TransactionRepository  extends CrudRepository <Transaction, Long>{
 	List<Transaction> findByAccountNumber(String accountNumber);
-	List<Transaction> findByAccountNumberAndDateAndOperation(String accountNumber,LocalDate date, Operation operation);
+	List<Transaction> findByAccountNumberAndDateAndOperation(String accountNumber, Date date, Operation operation);
 
 	
 }

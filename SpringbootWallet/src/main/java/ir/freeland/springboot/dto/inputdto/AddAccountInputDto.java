@@ -24,7 +24,7 @@ public class AddAccountInputDto {
 	private long accountBalance;
 
 
-	private LocalDate dateOfCreate;
+	private Date dateOfCreate;
 
 	// Iban number= shaba number
 
@@ -35,7 +35,7 @@ public class AddAccountInputDto {
 
 	}
 
-	public AddAccountInputDto(String accountNumber, long accountBalance, LocalDate dateOfCreate, String shabaNumber) {
+	public AddAccountInputDto(String accountNumber, long accountBalance, Date dateOfCreate, String shabaNumber) {
 		super();
 		this.accountNumber = accountNumber;
 		this.accountBalance = accountBalance;
@@ -59,11 +59,11 @@ public class AddAccountInputDto {
 		this.accountBalance = accountBalance;
 	}
 
-	public LocalDate getDateOfCreate() {
+	public Date getDateOfCreate() {
 		return dateOfCreate;
 	}
 
-	public void setDateOfCreate(LocalDate dateOfCreate) {
+	public void setDateOfCreate(Date dateOfCreate) {
 		this.dateOfCreate = dateOfCreate;
 	}
 

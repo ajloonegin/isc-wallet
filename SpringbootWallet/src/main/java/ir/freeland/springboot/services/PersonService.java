@@ -13,6 +13,8 @@ import ir.freeland.springboot.model.entity.Person;
 import ir.freeland.springboot.repo.PersonRepository;
 
 import java.time.Instant;
+
+
 import java.time.LocalDate;
 import java.time.Period;
 import java.time.ZoneId;
@@ -77,7 +79,7 @@ public class PersonService {
     public Integer calculateAge(Person person) {
 
 
-        //Convert java.util.Date to LocalDate in between method first parameter
+        //Convert java.util.Date to Date in between method first parameter
 
         return Period.between((person.getBirthDate().toInstant()
                 .atZone(ZoneId.systemDefault())

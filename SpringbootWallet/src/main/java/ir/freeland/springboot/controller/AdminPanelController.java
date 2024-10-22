@@ -126,9 +126,10 @@ public class AdminPanelController {
 
 	
 	@PostMapping(value ="/findaccount/result")
-	public String findAccountResult(@Valid @RequestBody FindAccountInputDto findAccountInputDto) {
+	public String findAccountResult(@ModelAttribute("findAccountInputDto") FindAccountInputDto findAccountInputDto , Model model) {
 
 		Account account = accountService.findAccountByAccountNumber(findAccountInputDto.getAccountNumber());
+		model.addAttribute("account", account);
 		System.out.println(account);
 		return "resultfindaccount";
 	}
