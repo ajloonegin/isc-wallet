@@ -5,11 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 
 public class DepositInputDto {
 	
-	@CardNumber
-	@NotBlank(message = "destinationAccountNumber is required")
+
     private String destinationAccountNumber;
 
-	@NotBlank(message = "amount is required")
+
     private double amount;
 
     public DepositInputDto() {

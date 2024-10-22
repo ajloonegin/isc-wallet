@@ -6,16 +6,14 @@ import jakarta.validation.constraints.NotBlank;
 public class TransferInputDto {
 
 	// account number= card number
-	@CardNumber
-	@NotBlank(message = "sourceAccountNumber is required")
+
 	String sourceAccountNumber;
 	
 	// account number= card number
-	@CardNumber
-	@NotBlank(message = "destinationAccountNumber is required")
+
 	String destinationAccountNumber;
 	
-	@NotBlank(message = "amount is required")
+
 	private double amount;
 
 	public TransferInputDto() {

@@ -27,13 +27,25 @@
         <td>Date of Birth:</td>
         <td><fmt:formatDate value="${person.birthDate}" pattern="yyyy-MM-dd" /></td>
     </tr>
-    <tr>
-        <td>Address:</td>
-        <td>${person.address}</td>
-    </tr>
+
     <tr>
         <td>Phone:</td>
         <td>${person.mobileNumber}</td>
+    </tr>
+
+    <tr>
+        <td>Address:</td>
+        <td>${person.gender}</td>
+    </tr>
+
+    <tr>
+        <td>Address:</td>
+        <td>${person.militaryStatus}</td>
+    </tr>
+
+    <tr>
+        <td>Address:</td>
+        <td>${person.email}</td>
     </tr>
 </table>
 </body>

@@ -79,7 +79,9 @@ public class PersonService {
 
         //Convert java.util.Date to LocalDate in between method first parameter
 
-        return Period.between((person.getBirthDate()), LocalDate.now()).getYears();
+        return Period.between((person.getBirthDate().toInstant()
+                .atZone(ZoneId.systemDefault())
+                .toLocalDate()), LocalDate.now()).getYears();
 
     }
 }

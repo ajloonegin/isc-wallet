@@ -6,8 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 public class TransactionInputDto {
 
 	// account number= card number
-	@CardNumber
-	@NotBlank(message = "accountNumber is required")
+
 	private String accountNumber;
 
 	public TransactionInputDto() {

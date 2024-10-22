@@ -28,7 +28,7 @@ public class AddPersonInputDto {
 	private String nationalCode;
 
 
-	private LocalDate birthDate;
+	private Date birthDate;
 
 
 	private String mobileNumber;
@@ -47,7 +47,7 @@ public class AddPersonInputDto {
 
 	}
 
-	public AddPersonInputDto(String name, String surName, String nationalCode, LocalDate birthDate, String mobileNumber,
+	public AddPersonInputDto(String name, String surName, String nationalCode, Date birthDate, String mobileNumber,
 			Gender gender, MilitaryStatus militaryStatus, String email) {
 		super();
 		this.name = name;
@@ -84,11 +84,11 @@ public class AddPersonInputDto {
 		this.nationalCode = nationalCode;
 	}
 
-	public LocalDate getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 

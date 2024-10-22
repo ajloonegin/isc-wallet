@@ -1,22 +1,18 @@
 package ir.freeland.springboot.controller;
 
+import ir.freeland.springboot.dto.inputdto.*;
+import ir.freeland.springboot.model.entity.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
-import ir.freeland.springboot.dto.inputdto.DepositInputDto;
-import ir.freeland.springboot.dto.inputdto.TransactionInputDto;
-import ir.freeland.springboot.dto.inputdto.TransferInputDto;
-import ir.freeland.springboot.dto.inputdto.WithdrawInputDto;
 import ir.freeland.springboot.services.AccountService;
 
 import jakarta.validation.Valid;
+
+import java.util.List;
 
 @Controller
 @RequestMapping(value = "/home/userpanel")
@@ -47,7 +43,7 @@ public class UserPanelController {
 	
 	@PostMapping(value ="/deposit/result")
 	
-	public String depositResult(@Valid @RequestBody DepositInputDto depositInputDto) {
+	public String depositResult(DepositInputDto depositInputDto) {
 		accountService.deposit(depositInputDto);
 		return "redirect:/home/adminpanel/findallaccount";
 	}
@@ -62,7 +58,7 @@ public class UserPanelController {
 
 	@PostMapping(value ="/withdraw/result")
 	
-	public String withdrawResult(@Valid @RequestBody WithdrawInputDto withdrawInputDto) {
+	public String withdrawResult(WithdrawInputDto withdrawInputDto) {
 		accountService.withdraw(withdrawInputDto);
 		return "redirect:/home/adminpanel/findallaccount";
 	}
@@ -77,21 +73,23 @@ public class UserPanelController {
 
 	@PostMapping(value ="/transfer/result")
 	
-	public String transferResult(@Valid @RequestBody TransferInputDto transferInputDto) {
+	public String transferResult(TransferInputDto transferInputDto) {
 		accountService.transfer(transferInputDto);
 		return "redirect:/home/adminpanel/findallaccount";
 	}
 
 	@GetMapping(value ="/listoftransaction")
 	
-	public String showListOfTransaction() {
+	public String showListOfTransaction(Model model) {
+		model.addAttribute("transactionInputDto", new TransactionInputDto());
 		return "sample16";
 	}
 
 	@PostMapping(value ="/listoftransaction/result")
 	
-	public String listOfTransactionResult(@Valid @RequestBody TransactionInputDto transactionInputDto) {
-		accountService.showTransaction(transactionInputDto);
+	public String listOfTransactionResult(@ModelAttribute("transactionInputDto") TransactionInputDto transactionInputDto, Model model) {
+		List<Transaction> transaction=accountService.showTransaction(transactionInputDto);
+		model.addAttribute("transaction", transaction);
 		return "resulttransactions";
 	}
 

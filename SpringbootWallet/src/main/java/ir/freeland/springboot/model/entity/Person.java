@@ -45,7 +45,7 @@ public class Person {
 	private String nationalCode;
 
 	@Column(nullable = false)
-	private LocalDate birthDate;
+	private Date birthDate;
 
 	@Column(nullable = false, unique = false)
 	@Pattern(regexp = "(0|\\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}")
@@ -100,11 +100,11 @@ public class Person {
 		this.nationalCode = nationalCode;
 	}
 
-	public LocalDate getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
 
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 

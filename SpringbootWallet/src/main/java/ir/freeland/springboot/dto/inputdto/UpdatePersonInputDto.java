@@ -32,7 +32,7 @@ public class UpdatePersonInputDto {
 	private String nationalCode;
 	
 	@NotBlank(message = "birthDate is required")
-	private LocalDate birthDate;
+	private Date birthDate;
 	
 	@Pattern(regexp = "(0|\\+98)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}")
 	@NotBlank(message = "mobileNumber is required")
@@ -55,7 +55,7 @@ public class UpdatePersonInputDto {
 	}
 	
 	
-	public UpdatePersonInputDto(long id, String name, String surName, String nationalCode, LocalDate birthDate,
+	public UpdatePersonInputDto(long id, String name, String surName, String nationalCode, Date birthDate,
 			String mobileNumber, Gender gender, MilitaryStatus militaryStatus, String email) {
 		super();
 		this.id = id;
@@ -98,10 +98,10 @@ public class UpdatePersonInputDto {
 	public void setNationalCode(String nationalCode) {
 		this.nationalCode = nationalCode;
 	}
-	public LocalDate getBirthDate() {
+	public Date getBirthDate() {
 		return birthDate;
 	}
-	public void setBirthDate(LocalDate birthDate) {
+	public void setBirthDate(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 	public String getMobileNumber() {
