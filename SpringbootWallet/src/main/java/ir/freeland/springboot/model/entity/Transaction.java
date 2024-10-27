@@ -1,6 +1,7 @@
 package ir.freeland.springboot.model.entity;
 
 import java.util.Date;
+import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
@@ -32,17 +33,17 @@ public class Transaction {
 	// account number=card number
 	@CardNumber
 	@Column(nullable = false, unique = false)
-	private String accountNumber;
+	private String sourceAccountNumber;
 
+	@CardNumber
 	@Column(nullable = false, unique = false)
-	private String accountName;
+	private String destinationAccountNumber;
+
 
 	@Column(nullable = false)
 	@Enumerated(EnumType.STRING)
 	private Operation operation;
 
-	@Column(nullable = true, unique = false)
-	private String description;
 
 	@Column(nullable = false, unique = false)
 	private double amount;
@@ -56,6 +57,14 @@ public class Transaction {
 
 	}
 
+	public Transaction(String sourceAccountNumber, String destinationAccountNumber, Operation operation, double amount, Date date) {
+		this.sourceAccountNumber = sourceAccountNumber;
+		this.destinationAccountNumber = destinationAccountNumber;
+		this.operation = operation;
+		this.amount = amount;
+		this.date = date;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -64,9 +73,21 @@ public class Transaction {
 		this.id = id;
 	}
 
+	public String getSourceAccountNumber() {
+		return sourceAccountNumber;
+	}
 
+	public void setSourceAccountNumber(String sourceAccountNumber) {
+		this.sourceAccountNumber = sourceAccountNumber;
+	}
 
+	public String getDestinationAccountNumber() {
+		return destinationAccountNumber;
+	}
 
+	public void setDestinationAccountNumber(String destinationAccountNumber) {
+		this.destinationAccountNumber = destinationAccountNumber;
+	}
 
 	public Operation getOperation() {
 		return operation;
@@ -76,36 +97,12 @@ public class Transaction {
 		this.operation = operation;
 	}
 
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
 	public double getAmount() {
 		return amount;
 	}
 
 	public void setAmount(double amount) {
 		this.amount = amount;
-	}
-
-	public String getAccountNumber() {
-		return accountNumber;
-	}
-
-	public void setAccountNumber(String accountNumber) {
-		this.accountNumber = accountNumber;
-	}
-
-	public String getAccountName() {
-		return accountName;
-	}
-
-	public void setAccountName(String accountName) {
-		this.accountName = accountName;
 	}
 
 	public Date getDate() {
@@ -117,41 +114,15 @@ public class Transaction {
 	}
 
 	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((accountName == null) ? 0 : accountName.hashCode());
-		result = prime * result + ((accountNumber == null) ? 0 : accountNumber.hashCode());
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		return result;
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Transaction that = (Transaction) o;
+		return Double.compare(amount, that.amount) == 0 && Objects.equals(id, that.id) && Objects.equals(sourceAccountNumber, that.sourceAccountNumber) && Objects.equals(destinationAccountNumber, that.destinationAccountNumber) && operation == that.operation && Objects.equals(date, that.date);
 	}
 
 	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Transaction other = (Transaction) obj;
-		if (accountName == null) {
-			if (other.accountName != null)
-				return false;
-		} else if (!accountName.equals(other.accountName))
-			return false;
-		if (accountNumber == null) {
-			if (other.accountNumber != null)
-				return false;
-		} else if (!accountNumber.equals(other.accountNumber))
-			return false;
-		if (id == null) {
-			if (other.id != null)
-				return false;
-		} else if (!id.equals(other.id))
-			return false;
-		return true;
+	public int hashCode() {
+		return Objects.hash(id, sourceAccountNumber, destinationAccountNumber, operation, amount, date);
 	}
-	
-
 }

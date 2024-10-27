@@ -18,8 +18,11 @@ import ir.freeland.springboot.model.entity.Transaction;
 
 @Repository
 public interface TransactionRepository  extends CrudRepository <Transaction, Long>{
-	List<Transaction> findByAccountNumber(String accountNumber);
-	List<Transaction> findByAccountNumberAndDateAndOperation(String accountNumber, Date date, Operation operation);
+	List<Transaction> findBySourceAccountNumber(String sourceAccountNumber);
 
+	List<Transaction> findByDestinationAccountNumber(String destinationAccountNumber);
+	List<Transaction> findBySourceAccountNumberAndDateAndOperation(String sourceAccountNumber, Date date, Operation operation);
+
+	List<Transaction> findByDestinationAccountNumberAndDateAndOperation(String destinationAccountNumber, Date date, Operation operation);
 	
 }

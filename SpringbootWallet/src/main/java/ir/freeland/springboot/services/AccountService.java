@@ -3,6 +3,7 @@ package ir.freeland.springboot.services;
 import java.util.Date;
 import java.util.List;
 
+import ir.freeland.springboot.model.entity.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -77,8 +78,10 @@ public class AccountService {
 
 	public void deposit(DepositInputDto depositInputDto) {
 		Account account = findAccountByAccountNumber(depositInputDto.getDestinationAccountNumber());
+
 		if (account != null) {
 			transactionService.updateAccountBalance(account, depositInputDto.getAmount(), Operation.DEPOSIT);
+
 
 		}
 

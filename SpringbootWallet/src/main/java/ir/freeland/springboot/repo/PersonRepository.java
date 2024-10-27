@@ -21,6 +21,7 @@ public interface PersonRepository extends CrudRepository<Person, Long> {
 	List<Person> findByName(String name);
 	
 	Person findByNationalCode(String nationalCode);
+
 	
 	void deleteById(long id);
   

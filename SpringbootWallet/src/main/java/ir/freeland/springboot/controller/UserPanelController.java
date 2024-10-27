@@ -1,7 +1,9 @@
 package ir.freeland.springboot.controller;
 
 import ir.freeland.springboot.dto.inputdto.*;
+import ir.freeland.springboot.model.constant.Operation;
 import ir.freeland.springboot.model.entity.Transaction;
+import ir.freeland.springboot.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -22,6 +24,9 @@ public class UserPanelController {
 
 	@Autowired
 	private AccountService accountService;
+
+	@Autowired
+	private TransactionService transactionService;
 
 	
 	
@@ -45,7 +50,9 @@ public class UserPanelController {
 	
 	public String depositResult(DepositInputDto depositInputDto) {
 		accountService.deposit(depositInputDto);
-		return "redirect:/home/adminpanel/findallaccount";
+		transactionService.createTransaction(depositInputDto, Operation.DEPOSIT);
+
+		return "resultdepositaccount";
 	}
 
 	@GetMapping(value ="/withdraw")
@@ -60,7 +67,8 @@ public class UserPanelController {
 	
 	public String withdrawResult(WithdrawInputDto withdrawInputDto) {
 		accountService.withdraw(withdrawInputDto);
-		return "redirect:/home/adminpanel/findallaccount";
+		transactionService.createTransaction(withdrawInputDto, Operation.WITHDRAW);
+		return "resultwithdrawaccount";
 	}
 
 	@GetMapping(value ="/transfer")
@@ -75,7 +83,8 @@ public class UserPanelController {
 	
 	public String transferResult(TransferInputDto transferInputDto) {
 		accountService.transfer(transferInputDto);
-		return "redirect:/home/adminpanel/findallaccount";
+		transactionService.createTransaction(transferInputDto, Operation.TRANSFER);
+		return "resulttransfer";
 	}
 
 	@GetMapping(value ="/listoftransaction")

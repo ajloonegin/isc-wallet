@@ -46,6 +46,10 @@ public class PersonService {
     public Person findPersonByNationalCode(String nationalcode) {
         return personRepository.findByNationalCode(nationalcode);
     }
+
+
+
+
     
     public Person getPersonById(Long id) {
         return personRepository.findById(id).orElse(null);

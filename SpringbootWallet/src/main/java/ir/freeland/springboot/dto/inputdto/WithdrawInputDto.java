@@ -3,7 +3,7 @@ package ir.freeland.springboot.dto.inputdto;
 import ir.freeland.springboot.annotation.CardNumber;
 import jakarta.validation.constraints.NotBlank;
 
-public class WithdrawInputDto {
+public class WithdrawInputDto{
 	
 
 	String accountNumber;
