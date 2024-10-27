@@ -185,19 +185,7 @@ public class WebConfig implements WebMvcConfigurer {
         return new JstlView("/WEB-INF/view16/sample16.jsp");
     }
     
-    
-    @Bean    
-    View registerform(){
-        return new JstlView("/WEB-INF/view5/registerform.jsp");
-    }
-    
 
-
-
-    @Bean    
-    View result(){
-        return new JstlView("/WEB-INF/view5/result.jsp");
-    }
 
     /**
      * Spring Boot allows configuring Content Negotiation using properties

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class PanelController {
 	
-	@PostMapping(value ="/home")
+	@GetMapping (value ="/home")
 	
 	public String showHomePage() {
 		return "sample1";
